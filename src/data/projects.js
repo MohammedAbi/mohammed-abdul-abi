@@ -431,7 +431,7 @@ const projects = [
       "PostCSS",
     ],
     image: imgP10,
-    github: "https://github.com/MohammedAbi/Semester-Project-2",
+    github: "https://github.com/MohammedAbi/Semester-Project-2-auction",
     live: "https://semester-project-2-auction.netlify.app/",
     brief:
       "Auction Website is a responsive front-end application built with React and Tailwind CSS, allowing users to create listings, bid on items, and manage profiles.",
