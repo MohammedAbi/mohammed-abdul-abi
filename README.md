@@ -1,5 +1,15 @@
 # React + Vite
 
+
+The following assignments must be in your portfolio website:  
+
+ CSS Frameworks - https://github.com/MohammedAbi/css-framework/pull/2
+
+ JavaScript Frameworks - https://github.com/MohammedAbi/vivatrend-store
+
+Semester Project 2 - https://github.com/MohammedAbi/Semester-Project-2-auction/tree/main
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
