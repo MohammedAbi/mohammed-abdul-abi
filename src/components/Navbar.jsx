@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({
-  isDarkMode,
-  toggleDarkMode,
-  toggleResume,
-  toggleBlog,
-  activeSection,
-  showResume,
-  showBlog,
-}) => {
+const Navbar = ({ isDarkMode, toggleDarkMode, activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
@@ -28,21 +20,11 @@ const Navbar = ({
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
-    { id: "resume", label: "Resume" },
   ];
 
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     setIsMenuOpen(false);
-
-    if (sectionId === "resume") {
-      toggleResume();
-      return;
-    }
-    if (sectionId === "blog") {
-      toggleBlog();
-      return;
-    }
 
     const section = document.getElementById(sectionId);
 
@@ -69,31 +51,29 @@ const Navbar = ({
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a
+            <Link
               href="#hero"
               onClick={(e) => handleNavClick(e, "hero")}
               className="text-2xl font-bold text-gray-900 dark:text-white"
             >
               M.Abi
-            </a>
+            </Link>
           </div>
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={(e) => handleNavClick(e, link.id)}
                 className={`${
-                  activeSection === link.id ||
-                  (link.id === "resume" && showResume) ||
-                  (link.id === "blog" && showBlog)
+                  activeSection === link.id
                     ? "text-blue-600 dark:text-blue-400"
                     : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 } transition-colors`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <button
               onClick={toggleDarkMode}
@@ -130,20 +110,18 @@ const Navbar = ({
       <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 shadow-lg">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.id}
               href={`#${link.id}`}
               onClick={(e) => handleNavClick(e, link.id)}
               className={`block px-3 py-2 ${
-                activeSection === link.id ||
-                (link.id === "resume" && showResume) ||
-                (link.id === "blog" && showBlog)
+                activeSection === link.id
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
               } transition-colors`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

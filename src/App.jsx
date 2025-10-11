@@ -24,11 +24,7 @@ function App() {
       <Navbar
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
-        toggleResume={() => {}}
-        toggleBlog={() => {}}
         activeSection=""
-        showResume={false}
-        showBlog={false}
       />
       <Routes>
         <Route path="/" element={<Home />} />
