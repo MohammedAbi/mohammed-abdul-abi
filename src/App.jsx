@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ProjectDetails from "./components/ProjectDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
-const App = () => {
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Navbar
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+        toggleResume={() => {}}
+        toggleBlog={() => {}}
+        activeSection=""
+        showResume={false}
+        showBlog={false}
+      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects/:slug" element={<ProjectDetails />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
