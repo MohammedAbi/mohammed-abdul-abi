@@ -25,7 +25,7 @@ const About = () => {
           </div>
           <div className="relative animate-fade-in">
             <img
-              src="../src/assets/about.png"
+              src="../about.png"
               alt="Professional headshot"
               className="rounded-lg shadow-xl w-5/6 mx-auto"
             />
