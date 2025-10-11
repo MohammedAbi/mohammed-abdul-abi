@@ -4,6 +4,8 @@ import { ExternalLink, Github, Share2, ArrowLeft } from "lucide-react";
 import projects from "../data/projects";
 
 const ProjectDetails = () => {
+  const [copied, setCopied] = React.useState(false);
+
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
   if (!project) {
@@ -19,9 +21,10 @@ const ProjectDetails = () => {
     );
   }
 
-  const handleShare = () => {
+  const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    alert("Project link copied to clipboard!");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -49,6 +52,9 @@ const ProjectDetails = () => {
               alt={project.title}
               className="w-full object-cover"
             />
+            <figcaption className="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center">
+              {project.title} — Screenshot of the live project
+            </figcaption>
           </figure>
           {/* Links */}
           <div className="flex gap-4">
@@ -66,12 +72,22 @@ const ProjectDetails = () => {
             >
               <Github size={18} className="inline-block mr-2" /> GitHub
             </a>
-            <button
-              onClick={handleShare}
-              className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              <Share2 size={18} className="inline-block mr-2" /> Share
-            </button>
+            <div className="flex flex-col items-center">
+              <button
+                onClick={handleCopyLink}
+                className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 
+               rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              >
+                <Share2 size={18} className="inline-block mr-2" />
+                Copy Project Link
+              </button>
+
+              {copied && (
+                <p className="text-sm text-green-600 dark:text-green-400 mt-2">
+                  ✅ Link copied to clipboard!
+                </p>
+              )}
+            </div>
           </div>
 
           <p className="text-lg text-gray-700 dark:text-gray-300">

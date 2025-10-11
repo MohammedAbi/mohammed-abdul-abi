@@ -10,22 +10,22 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              I'm a Front-End Developer with 4+ years of experience building
-              responsive, user-friendly web apps. My journey started when I put
-              together my first PC from scratch, and ever since, I've been
-              hooked on creating digital experiences that actually make a
-              difference for people.
+              I’m a front-end developer with 4+ years of experience building
+              responsive, user-friendly web apps. I got into tech after building
+              my first PC from scratch, and that curiosity quickly turned into a
+              passion for creating digital experiences that actually help
+              people.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              I focus on JavaScript/TypeScript, React, Node.js, and the latest
-              web technologies. I may not know everything, but I’m always
-              learning and love figuring out new tools to build better, smoother
-              web experiences.
+              I focus on JavaScript, TypeScript, React, and Node.js, and I’m
+              always looking for ways to improve how I build and think about the
+              web. I don’t claim to know everything, but I’m driven to keep
+              learning, stay curious, and deliver work I can be proud of.
             </p>
           </div>
           <div className="relative animate-fade-in">
             <img
-              src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c"
+              src="../src/assets/about.png"
               alt="Professional headshot"
               className="rounded-lg shadow-xl w-5/6 mx-auto"
             />
